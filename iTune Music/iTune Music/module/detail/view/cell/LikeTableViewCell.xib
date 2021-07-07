@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LikeTableViewCell" rowHeight="63" id="KGk-i7-Jjw" customClass="LikeTableViewCell" customModule="iTune_Music" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMC-v0-eZg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="eAT-Xn-IVG">
+                                <rect key="frame" x="18" y="15.5" width="32" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="XCy-QP-Qjd"/>
+                                    <constraint firstAttribute="width" constant="32" id="kro-M3-acY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iJ-wx-LKN">
+                                <rect key="frame" x="74" y="21" width="32" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otx-7O-Une">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="likedClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="18a-8r-C4M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="otx-7O-Une" firstAttribute="top" secondItem="nMC-v0-eZg" secondAttribute="top" id="2e2-hA-Ndd"/>
+                            <constraint firstAttribute="trailing" secondItem="otx-7O-Une" secondAttribute="trailing" id="8nt-HF-cg4"/>
+                            <constraint firstItem="eAT-Xn-IVG" firstAttribute="leading" secondItem="nMC-v0-eZg" secondAttribute="leading" constant="18" id="DbH-Cn-kcT"/>
+                            <constraint firstAttribute="bottom" secondItem="otx-7O-Une" secondAttribute="bottom" id="Gck-p3-iBY"/>
+                            <constraint firstItem="eAT-Xn-IVG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nMC-v0-eZg" secondAttribute="top" constant="12" id="KPO-v2-Nw6"/>
+                            <constraint firstItem="otx-7O-Une" firstAttribute="leading" secondItem="nMC-v0-eZg" secondAttribute="leading" id="M0o-vP-VuX"/>
+                            <constraint firstItem="eAT-Xn-IVG" firstAttribute="centerY" secondItem="nMC-v0-eZg" secondAttribute="centerY" id="RH4-0R-LCs"/>
+                            <constraint firstItem="5iJ-wx-LKN" firstAttribute="leading" secondItem="eAT-Xn-IVG" secondAttribute="trailing" constant="24" id="TEd-AG-BIo"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5iJ-wx-LKN" secondAttribute="trailing" constant="12" id="aC5-6E-yUm"/>
+                            <constraint firstItem="5iJ-wx-LKN" firstAttribute="centerY" secondItem="nMC-v0-eZg" secondAttribute="centerY" id="w37-wu-mAy"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eAT-Xn-IVG" secondAttribute="bottom" constant="12" id="yXo-bh-DkN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="nMC-v0-eZg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HdA-A4-9Lf"/>
+                    <constraint firstAttribute="trailing" secondItem="nMC-v0-eZg" secondAttribute="trailing" id="IKl-yI-RHb"/>
+                    <constraint firstItem="nMC-v0-eZg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YW3-aF-j55"/>
+                    <constraint firstAttribute="bottom" secondItem="nMC-v0-eZg" secondAttribute="bottom" id="tTA-33-NO3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="likeImageView" destination="eAT-Xn-IVG" id="7re-Hb-rUz"/>
+                <outlet property="likeLabel" destination="5iJ-wx-LKN" id="K6w-1a-JT2"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="124.21875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="like" width="32" height="32"/>
+    </resources>
+</document>

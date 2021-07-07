@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-Je-Kut">
                         <rect key="frame" x="0.0" y="0.0" width="345" height="95"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music" translatesAutoresizingMaskIntoConstraints="NO" id="Umq-Nv-gfQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music" translatesAutoresizingMaskIntoConstraints="NO" id="Umq-Nv-gfQ">
                                 <rect key="frame" x="12" y="12" width="60" height="60"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -27,29 +27,37 @@
                                     <constraint firstAttribute="width" constant="60" id="jEh-un-m4E"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2X-mb-5hl">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="8vS-BJ-ADD">
+                                <rect key="frame" x="269" y="30" width="24" height="24"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="hwZ-9S-7XW"/>
+                                    <constraint firstAttribute="width" constant="24" id="wes-cd-CN8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2X-mb-5hl">
                                 <rect key="frame" x="84" y="16" width="15.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="For-ER-J2I">
+                                <rect key="frame" x="84" y="40.5" width="15.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="For-ER-J2I">
-                                <rect key="frame" x="84" y="40.5" width="15.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DV-DE-cDy">
-                                <rect key="frame" x="309" y="30" width="24" height="24"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DV-DE-cDy">
+                                <rect key="frame" x="299" y="21" width="34" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="7Xt-ja-b0U"/>
-                                    <constraint firstAttribute="height" constant="24" id="ZTh-o6-WrB"/>
+                                    <constraint firstAttribute="width" constant="34" id="7Xt-ja-b0U"/>
+                                    <constraint firstAttribute="height" constant="42" id="ZTh-o6-WrB"/>
                                 </constraints>
-                                <state key="normal" image="play">
+                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal" image="more">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="previewClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sOv-VD-zqP"/>
+                                    <action selector="detailClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dvK-c3-31h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,11 +66,13 @@
                             <constraint firstAttribute="trailing" secondItem="5DV-DE-cDy" secondAttribute="trailing" constant="12" id="67d-jd-Ufb"/>
                             <constraint firstItem="Umq-Nv-gfQ" firstAttribute="top" secondItem="LS6-Je-Kut" secondAttribute="top" constant="12" id="7Pw-nP-8ip"/>
                             <constraint firstItem="5DV-DE-cDy" firstAttribute="centerY" secondItem="Umq-Nv-gfQ" secondAttribute="centerY" id="8aq-jC-Nyq"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="For-ER-J2I" secondAttribute="trailing" constant="18" id="9hB-mi-ve8"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="For-ER-J2I" secondAttribute="trailing" constant="34" id="9hB-mi-ve8"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="For-ER-J2I" secondAttribute="bottom" constant="12" id="9oK-N2-VlM"/>
-                            <constraint firstItem="5DV-DE-cDy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k2X-mb-5hl" secondAttribute="trailing" constant="8" id="CW6-Wz-jbO"/>
+                            <constraint firstItem="5DV-DE-cDy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k2X-mb-5hl" secondAttribute="trailing" constant="34" id="CW6-Wz-jbO"/>
                             <constraint firstItem="k2X-mb-5hl" firstAttribute="top" secondItem="Umq-Nv-gfQ" secondAttribute="top" constant="4" id="FtR-qi-Vqs"/>
+                            <constraint firstItem="5DV-DE-cDy" firstAttribute="leading" secondItem="8vS-BJ-ADD" secondAttribute="trailing" constant="6" id="H4c-Zr-wbO"/>
                             <constraint firstItem="Umq-Nv-gfQ" firstAttribute="leading" secondItem="LS6-Je-Kut" secondAttribute="leading" constant="12" id="HaV-fl-8Il"/>
+                            <constraint firstItem="8vS-BJ-ADD" firstAttribute="centerY" secondItem="Umq-Nv-gfQ" secondAttribute="centerY" id="V82-fs-6u0"/>
                             <constraint firstItem="For-ER-J2I" firstAttribute="leading" secondItem="k2X-mb-5hl" secondAttribute="leading" id="cRh-na-t1z"/>
                             <constraint firstItem="k2X-mb-5hl" firstAttribute="leading" secondItem="Umq-Nv-gfQ" secondAttribute="trailing" constant="12" id="kpi-Q1-khw"/>
                             <constraint firstItem="For-ER-J2I" firstAttribute="top" secondItem="k2X-mb-5hl" secondAttribute="bottom" constant="4" id="vil-sc-Ke0"/>
@@ -81,13 +91,15 @@
             <connections>
                 <outlet property="artistNameLabel" destination="For-ER-J2I" id="mSn-G7-f3K"/>
                 <outlet property="artworkImageView" destination="Umq-Nv-gfQ" id="5bE-jQ-oka"/>
+                <outlet property="likeImageView" destination="8vS-BJ-ADD" id="2bH-ty-gP9"/>
                 <outlet property="trackNameLabel" destination="k2X-mb-5hl" id="f3p-Is-NBD"/>
             </connections>
             <point key="canvasLocation" x="158.69565217391306" y="157.70089285714286"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="like" width="32" height="32"/>
+        <image name="more" width="32" height="32"/>
         <image name="music" width="60" height="60"/>
-        <image name="play" width="33" height="33"/>
     </resources>
 </document>

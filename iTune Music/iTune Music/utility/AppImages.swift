@@ -10,7 +10,10 @@ import UIKit
 
 enum AppImages: String {
     case music
-    case play
+    case more
+    case like
+    case liked
+    case album
 
     var instance: UIImage? {
         return UIImage(named: rawValue)

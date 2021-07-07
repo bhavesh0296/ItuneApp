@@ -15,7 +15,14 @@ struct Music: Codable {
     var artistName: String?
     var previewUrl: String?
     var artworkUrl: String?
-    
+    var kind: String?
+    var collectionViewUrl: String?
+    var artistViewUrl: String?
+
+    var isLiked: Bool = false
+    var isContainVideo: Bool {
+        return kind == "feature-movie"
+    }
 
     enum CodingKeys: String, CodingKey {
         case trackName
@@ -23,5 +30,9 @@ struct Music: Codable {
         case artistName
         case previewUrl
         case artworkUrl = "artworkUrl100"
+        case kind
+        case collectionViewUrl
+        case artistViewUrl
     }
+
 }

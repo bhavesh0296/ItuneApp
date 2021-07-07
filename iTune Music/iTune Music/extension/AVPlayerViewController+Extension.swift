@@ -11,6 +11,10 @@ import AVKit
 
 extension AVPlayerViewController {
 
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+
     func setMusicThumbnail(with path: String, placeholder: UIImage?) {
         if let contentOverlayViewUnwrap = self.contentOverlayView {
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
@@ -22,5 +26,8 @@ extension AVPlayerViewController {
 
     func setBackgroundColor(color: UIColor) {
         self.contentOverlayView?.backgroundColor = color
+        setNeedsStatusBarAppearanceUpdate()
     }
+
+
 }

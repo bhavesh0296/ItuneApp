@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="73" id="KGk-i7-Jjw" customClass="ViewAlbumTableViewCell" customModule="iTune_Music" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEw-Kb-heb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album" translatesAutoresizingMaskIntoConstraints="NO" id="YAR-Fd-F0R">
+                                <rect key="frame" x="18" y="20.5" width="32" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="4VL-LT-QHJ"/>
+                                    <constraint firstAttribute="width" constant="32" id="tew-Wq-dRR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egj-1H-6CV">
+                                <rect key="frame" x="74" y="26" width="93" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdf-9i-suC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="viewAlbumClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rHi-VA-DSk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YAR-Fd-F0R" secondAttribute="bottom" constant="12" id="J6L-hq-bdB"/>
+                            <constraint firstItem="YAR-Fd-F0R" firstAttribute="leading" secondItem="UEw-Kb-heb" secondAttribute="leading" constant="18" id="S2R-bz-BCP"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="egj-1H-6CV" secondAttribute="trailing" constant="12" id="Sqh-DJ-8VP"/>
+                            <constraint firstItem="egj-1H-6CV" firstAttribute="centerY" secondItem="UEw-Kb-heb" secondAttribute="centerY" id="Wg7-SO-5HW"/>
+                            <constraint firstItem="YAR-Fd-F0R" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UEw-Kb-heb" secondAttribute="top" constant="12" id="XmZ-xu-BhE"/>
+                            <constraint firstItem="vdf-9i-suC" firstAttribute="top" secondItem="UEw-Kb-heb" secondAttribute="top" id="aX5-HQ-jVl"/>
+                            <constraint firstAttribute="bottom" secondItem="vdf-9i-suC" secondAttribute="bottom" id="cRD-xZ-G13"/>
+                            <constraint firstItem="YAR-Fd-F0R" firstAttribute="centerY" secondItem="UEw-Kb-heb" secondAttribute="centerY" id="daf-FY-Fnj"/>
+                            <constraint firstAttribute="trailing" secondItem="vdf-9i-suC" secondAttribute="trailing" id="fH7-FM-jgY"/>
+                            <constraint firstItem="egj-1H-6CV" firstAttribute="leading" secondItem="YAR-Fd-F0R" secondAttribute="trailing" constant="24" id="hdA-qa-zMy"/>
+                            <constraint firstItem="vdf-9i-suC" firstAttribute="leading" secondItem="UEw-Kb-heb" secondAttribute="leading" id="uRB-HK-uT3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="UEw-Kb-heb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6jg-vV-yhr"/>
+                    <constraint firstAttribute="bottom" secondItem="UEw-Kb-heb" secondAttribute="bottom" id="i9z-bX-qsa"/>
+                    <constraint firstItem="UEw-Kb-heb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kIl-Hc-Evc"/>
+                    <constraint firstAttribute="trailing" secondItem="UEw-Kb-heb" secondAttribute="trailing" id="zLR-fk-SkM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="viewAlbumImageView" destination="YAR-Fd-F0R" id="aze-c6-REI"/>
+                <outlet property="viewAlbumLabel" destination="egj-1H-6CV" id="Qi0-q2-YY5"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="127.56696428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="album" width="32" height="32"/>
+    </resources>
+</document>

@@ -28,9 +28,19 @@ class ViewController: UIViewController {
         tableViewSetup()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+
     fileprivate func initialViewSetup() {
         self.title = StringConstants.HOME_SCREEN_TITLE
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.tintColor = AppColor.theme
     }
 
     fileprivate func tableViewSetup() {
@@ -39,6 +49,7 @@ class ViewController: UIViewController {
         musicTableView.register(UINib(nibName: String(describing: MusicTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MusicTableViewCell.self))
         musicTableView.estimatedRowHeight = 80
         musicTableView.rowHeight = UITableView.automaticDimension
+        musicTableView.tableFooterView = UIView()
         reloadMusicTable()
     }
 
@@ -48,6 +59,10 @@ class ViewController: UIViewController {
         }
     }
 
+    fileprivate func reloadRow(at indexPath: IndexPath) {
+        self.musicTableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
     fileprivate func getMusic(at index: Int) -> Music? {
         guard self.musicList.count > index else {
             return nil
@@ -55,14 +70,13 @@ class ViewController: UIViewController {
         return self.musicList[index]
     }
 
-//    fileprivate func musicSelected(index: Int) {
-//        guard self.musicList.count > index else {
-//            showErrorAlert(StringConstants.APP_NAME, with: StringConstants.MUSIC_PREVIEW_ERROR_MESSAGE)
-//            return
-//        }
-//        let music = self.musicList[index]
-//        playMusicPreview(with: music)
-//    }
+    fileprivate func musicTap(with index: Int) {
+        guard let music = self.getMusic(at: index) else {
+            self.showErrorAlert(StringConstants.APP_NAME, with: StringConstants.MUSIC_GET_ERROR_AT_INDEX)
+            return
+        }
+        self.playMusicPreview(with: music)
+    }
 
     fileprivate func playMusicPreview(with music: Music) {
         guard let previewUrlPath = music.previewUrl,
@@ -75,13 +89,33 @@ class ViewController: UIViewController {
         let player = AVPlayer(url: previewUrl)
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
-        playerViewController.setBackgroundColor(color: AppColor.background)
+        if !music.isContainVideo {
+            playerViewController.setBackgroundColor(color: AppColor.background)
+        }
 
-        self.present(playerViewController, animated: true) {
-            if let artworkUrl = music.artworkUrl {
-                playerViewController.setMusicThumbnail(with: artworkUrl, placeholder: AppImages.music.instance)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+
+            self.present(playerViewController, animated: true) {
+                if !music.isContainVideo,
+                    let artworkUrl = music.artworkUrl {
+                    playerViewController.setMusicThumbnail(with: artworkUrl, placeholder: AppImages.music.instance)
+                }
+                playerViewController.player?.play()
             }
-            playerViewController.player?.play()
+        }
+    }
+
+    fileprivate func navigateToMusicDetail(with music: Music, at indexPath: IndexPath) {
+        let musicDetailVC = AppStoryboard.Main.getViewController(MusicDetailViewController.self)
+        musicDetailVC.modalPresentationStyle = .overCurrentContext
+        musicDetailVC.modalTransitionStyle = .coverVertical
+        musicDetailVC.music = music
+        musicDetailVC.musicIndexPath = indexPath
+        musicDetailVC.delegate = self
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.present(musicDetailVC, animated: true, completion: nil)
         }
     }
 
@@ -97,7 +131,7 @@ extension ViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MusicTableViewCell.self), for: indexPath) as! MusicTableViewCell
         let music = musicList[indexPath.row]
-        cell.configure(with: music, index: indexPath.row)
+        cell.configure(with: music, indexPath: indexPath)
         cell.delegate = self
         return cell
     }
@@ -108,7 +142,7 @@ extension ViewController : UITableViewDataSource {
 extension ViewController : UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        self.musicTap(with: indexPath.row)
     }
 
 }
@@ -138,11 +172,26 @@ extension ViewController: HomePresenterProtocol {
 //MARK:- MusicTableViewCellProtocol Extension
 extension ViewController: MusicTableViewCellProtocol {
 
-    func previewTap(index: Int) {
-        guard let music = self.getMusic(at: index) else {
+    func detailTap(at indexPath: IndexPath) {
+        guard let music = self.getMusic(at: indexPath.row) else {
             self.showErrorAlert(StringConstants.APP_NAME, with: StringConstants.MUSIC_GET_ERROR_AT_INDEX)
             return
         }
-        self.playMusicPreview(with: music)
+        self.navigateToMusicDetail(with: music, at: indexPath)
     }
+
+}
+
+//MARK:- MusicDetailViewControllerProtocol extension
+extension ViewController: MusicDetailViewControllerProtocol {
+
+    func likeEvent(with music: Music, indexPath: IndexPath) {
+        guard self.musicList.count > indexPath.row else {
+            return
+        }
+        self.musicList[indexPath.row] = music
+
+        self.reloadRow(at: indexPath)
+    }
+
 }
