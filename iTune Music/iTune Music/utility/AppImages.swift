@@ -14,6 +14,7 @@ enum AppImages: String {
     case like
     case liked
     case album
+    case artist
 
     var instance: UIImage? {
         return UIImage(named: rawValue)

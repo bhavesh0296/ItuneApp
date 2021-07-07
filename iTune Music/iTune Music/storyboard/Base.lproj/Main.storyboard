@@ -49,16 +49,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kS5-bw-fcN">
-                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="742"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pfg-i7-muk">
-                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="786" width="414" height="76"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyl-eE-Xpd">
-                                        <rect key="frame" x="146.5" y="10.5" width="121" height="39"/>
+                                        <rect key="frame" x="145.5" y="18.5" width="123" height="39"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                         <inset key="contentEdgeInsets" minX="36" minY="8" maxX="36" maxY="8"/>
                                         <state key="normal" title="Close">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,7 +70,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Pk1-td-P7P"/>
+                                    <constraint firstAttribute="height" constant="76" id="Pk1-td-P7P"/>
                                     <constraint firstItem="Yyl-eE-Xpd" firstAttribute="centerX" secondItem="Pfg-i7-muk" secondAttribute="centerX" id="bMB-RX-kyQ"/>
                                     <constraint firstItem="Yyl-eE-Xpd" firstAttribute="centerY" secondItem="Pfg-i7-muk" secondAttribute="centerY" id="fFg-1P-3Nq"/>
                                 </constraints>
