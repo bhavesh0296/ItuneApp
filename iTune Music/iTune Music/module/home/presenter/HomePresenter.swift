@@ -27,7 +27,7 @@ class HomePresenter {
 
     func fetchMusic() {
         delegate?.showLoader()
-        APIService.shared.getRequest { (result: Result<MusicResponseModel, Error>) in
+        APIService.shared.getRequest(.searchMichaelJackson) { (result: Result<MusicResponseModel, Error>) in
             self.delegate?.hideLoader()
             switch result {
             case .success(let data):

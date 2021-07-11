@@ -27,6 +27,12 @@
 		4082997E26959E0300950E95 /* MusicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4082997D26959E0300950E95 /* MusicDetailViewController.swift */; };
 		408299812695A08F00950E95 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408299802695A08F00950E95 /* AppStoryboard.swift */; };
 		40CD7D662694F2890080B316 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CD7D652694F2890080B316 /* UIViewController+Extension.swift */; };
+		40F205362696F06D0079399B /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F205342696F06D0079399B /* DetailTableViewCell.swift */; };
+		40F205372696F06D0079399B /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40F205352696F06D0079399B /* DetailTableViewCell.xib */; };
+		40F20539269701670079399B /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F20538269701670079399B /* DateUtility.swift */; };
+		40F205412697688C0079399B /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F205402697688C0079399B /* APIConstants.swift */; };
+		40F2054326976AF20079399B /* APIEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2054226976AF20079399B /* APIEndPoints.swift */; };
+		40F2054526976C4C0079399B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F2054426976C4C0079399B /* APIError.swift */; };
 		40FD8C3D2695C8B800560050 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD8C3C2695C8B800560050 /* UIView+Extension.swift */; };
 		40FD8C412695CB5400560050 /* TrackDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD8C3F2695CB5400560050 /* TrackDetailTableViewCell.swift */; };
 		40FD8C422695CB5400560050 /* TrackDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40FD8C402695CB5400560050 /* TrackDetailTableViewCell.xib */; };
@@ -61,6 +67,12 @@
 		4082997D26959E0300950E95 /* MusicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDetailViewController.swift; sourceTree = "<group>"; };
 		408299802695A08F00950E95 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		40CD7D652694F2890080B316 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		40F205342696F06D0079399B /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		40F205352696F06D0079399B /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		40F20538269701670079399B /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
+		40F205402697688C0079399B /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		40F2054226976AF20079399B /* APIEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndPoints.swift; sourceTree = "<group>"; };
+		40F2054426976C4C0079399B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		40FD8C3C2695C8B800560050 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		40FD8C3F2695CB5400560050 /* TrackDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailTableViewCell.swift; sourceTree = "<group>"; };
 		40FD8C402695CB5400560050 /* TrackDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -201,6 +213,9 @@
 			isa = PBXGroup;
 			children = (
 				405C0FF42694E41B00FDFB75 /* APIService.swift */,
+				40F205402697688C0079399B /* APIConstants.swift */,
+				40F2054226976AF20079399B /* APIEndPoints.swift */,
+				40F2054426976C4C0079399B /* APIError.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -219,6 +234,7 @@
 				405C0FE42694D26100FDFB75 /* AppColor.swift */,
 				408299782695891A00950E95 /* AppImages.swift */,
 				408299802695A08F00950E95 /* AppStoryboard.swift */,
+				40F20538269701670079399B /* DateUtility.swift */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -243,6 +259,8 @@
 				40FD8C49269625EC00560050 /* ViewAlbumTableViewCell.xib */,
 				40FD8C4C26963B3700560050 /* ViewArtistTableViewCell.swift */,
 				40FD8C4D26963B3700560050 /* ViewArtistTableViewCell.xib */,
+				40F205342696F06D0079399B /* DetailTableViewCell.swift */,
+				40F205352696F06D0079399B /* DetailTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -315,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40FD8C47269618AC00560050 /* LikeTableViewCell.xib in Resources */,
+				40F205372696F06D0079399B /* DetailTableViewCell.xib in Resources */,
 				40FD8C4F26963B3700560050 /* ViewArtistTableViewCell.xib in Resources */,
 				405C0FDB2694CCE800FDFB75 /* LaunchScreen.storyboard in Resources */,
 				40FD8C4B269625EC00560050 /* ViewAlbumTableViewCell.xib in Resources */,
@@ -334,6 +353,7 @@
 			files = (
 				405C0FE32694CE6700FDFB75 /* StringConstants.swift in Sources */,
 				40CD7D662694F2890080B316 /* UIViewController+Extension.swift in Sources */,
+				40F20539269701670079399B /* DateUtility.swift in Sources */,
 				405C0FE52694D26100FDFB75 /* AppColor.swift in Sources */,
 				405C0FD32694CCE100FDFB75 /* ViewController.swift in Sources */,
 				4082997B2695976900950E95 /* AVPlayerViewController+Extension.swift in Sources */,
@@ -342,6 +362,7 @@
 				405C0FF02694DE9600FDFB75 /* Music.swift in Sources */,
 				40FD8C3D2695C8B800560050 /* UIView+Extension.swift in Sources */,
 				408299792695891A00950E95 /* AppImages.swift in Sources */,
+				40F205362696F06D0079399B /* DetailTableViewCell.swift in Sources */,
 				408299812695A08F00950E95 /* AppStoryboard.swift in Sources */,
 				40FD8C4E26963B3700560050 /* ViewArtistTableViewCell.swift in Sources */,
 				40FD8C46269618AC00560050 /* LikeTableViewCell.swift in Sources */,
@@ -350,9 +371,12 @@
 				405C0FD12694CCE100FDFB75 /* SceneDelegate.swift in Sources */,
 				405C0FF72694E8C400FDFB75 /* MusicResponseModel.swift in Sources */,
 				405C0FED2694D61A00FDFB75 /* MusicTableViewCell.swift in Sources */,
+				40F205412697688C0079399B /* APIConstants.swift in Sources */,
 				405C0FF52694E41B00FDFB75 /* APIService.swift in Sources */,
 				40FD8C412695CB5400560050 /* TrackDetailTableViewCell.swift in Sources */,
+				40F2054326976AF20079399B /* APIEndPoints.swift in Sources */,
 				405C0FF22694E1D200FDFB75 /* HomePresenter.swift in Sources */,
+				40F2054526976C4C0079399B /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,6 +34,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n95-xb-bSu">
+                                <rect key="frame" x="18" y="57" width="284" height="1"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="1KP-T6-xeV"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXq-oa-QLZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,9 +54,12 @@
                             <constraint firstItem="iKy-iF-H1T" firstAttribute="leading" secondItem="x6k-qS-UCB" secondAttribute="leading" constant="18" id="1B4-Ta-g3o"/>
                             <constraint firstItem="DXq-oa-QLZ" firstAttribute="top" secondItem="x6k-qS-UCB" secondAttribute="top" id="6ld-Rv-oWL"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hxs-GC-BaY" secondAttribute="trailing" constant="12" id="Atz-GR-N5Z"/>
+                            <constraint firstItem="n95-xb-bSu" firstAttribute="leading" secondItem="x6k-qS-UCB" secondAttribute="leading" constant="18" id="BJK-cn-IwP"/>
                             <constraint firstItem="hxs-GC-BaY" firstAttribute="centerY" secondItem="x6k-qS-UCB" secondAttribute="centerY" id="BlD-FV-vow"/>
                             <constraint firstItem="iKy-iF-H1T" firstAttribute="centerY" secondItem="x6k-qS-UCB" secondAttribute="centerY" id="Fu7-Bl-pFv"/>
                             <constraint firstAttribute="bottom" secondItem="DXq-oa-QLZ" secondAttribute="bottom" id="Gs3-Lt-I2h"/>
+                            <constraint firstAttribute="trailing" secondItem="n95-xb-bSu" secondAttribute="trailing" constant="18" id="IVo-fh-Ckd"/>
+                            <constraint firstAttribute="bottom" secondItem="n95-xb-bSu" secondAttribute="bottom" id="aNP-JC-p4r"/>
                             <constraint firstItem="DXq-oa-QLZ" firstAttribute="leading" secondItem="x6k-qS-UCB" secondAttribute="leading" id="bgM-bv-MNu"/>
                             <constraint firstItem="hxs-GC-BaY" firstAttribute="leading" secondItem="iKy-iF-H1T" secondAttribute="trailing" constant="24" id="doM-sv-hGc"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iKy-iF-H1T" secondAttribute="bottom" constant="12" id="jis-nh-83s"/>

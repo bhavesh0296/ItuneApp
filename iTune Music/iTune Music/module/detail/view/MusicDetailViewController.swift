@@ -49,10 +49,13 @@ class MusicDetailViewController: UIViewController {
         detailTableView.register(UINib(nibName: String(describing: LikeTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: LikeTableViewCell.self))
         detailTableView.register(UINib(nibName: String(describing: ViewAlbumTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ViewAlbumTableViewCell.self))
         detailTableView.register(UINib(nibName: String(describing: ViewArtistTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ViewArtistTableViewCell.self))
+        detailTableView.register(UINib(nibName: String(describing: DetailTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: DetailTableViewCell.self))
         detailTableView.estimatedRowHeight = 80
         detailTableView.rowHeight = UITableView.automaticDimension
         detailTableView.separatorStyle = .none
         detailTableView.tableFooterView = UIView()
+        detailTableView.showsVerticalScrollIndicator = false
+        detailTableView.showsHorizontalScrollIndicator = false
         reloadDetailTable()
     }
 
@@ -88,7 +91,7 @@ class MusicDetailViewController: UIViewController {
 extension MusicDetailViewController : UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 10
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,6 +114,30 @@ extension MusicDetailViewController : UITableViewDataSource, UITableViewDelegate
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ViewArtistTableViewCell.self), for: indexPath) as! ViewArtistTableViewCell
             cell.delegate = self
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DetailTableViewCell.self), for: indexPath) as! DetailTableViewCell
+            cell.configureTrack(with: music)
+            return cell
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DetailTableViewCell.self), for: indexPath) as! DetailTableViewCell
+            cell.configureGenre(with: music)
+            return cell
+        case 6:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DetailTableViewCell.self), for: indexPath) as! DetailTableViewCell
+            cell.configureAlbum(with: music)
+            return cell
+        case 7:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DetailTableViewCell.self), for: indexPath) as! DetailTableViewCell
+            cell.configureReleased(with: music)
+            return cell
+        case 8:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DetailTableViewCell.self), for: indexPath) as! DetailTableViewCell
+            cell.configureCountry(with: music)
+            return cell
+        case 9:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DetailTableViewCell.self), for: indexPath) as! DetailTableViewCell
+            cell.configurePrice(with: music)
             return cell
         default:
             return UITableViewCell()

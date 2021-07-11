@@ -16,13 +16,16 @@ class APIService {
     //MARK:- private initializer
     private init() { }
 
-    func getRequest<T: Decodable>(completion: @escaping (Result<T, Error>) -> Void) {
-        let APIUrl = "https://itunes.apple.com/search?term=Michael+jackson"
-        let sourcesURL = URL(string: APIUrl)!
-        URLSession.shared.dataTask(with: sourcesURL) { (data, urlResponse, error) in
+    
+    func getRequest<T: Decodable>(_ endPoint: APIEndPoints, completion: @escaping (Result<T, Error>) -> Void) {
+        guard let sourceUrl = endPoint.sourceUrl else {
+            completion(.failure(APIError.creatingSourceUrlFail))
+            return
+        }
+        URLSession.shared.dataTask(with: sourceUrl) { (data, urlResponse, error) in
 
-            if error != nil {
-                completion(.failure(error!))
+            if let error = error {
+                completion(.failure(error))
                 return
             }
 

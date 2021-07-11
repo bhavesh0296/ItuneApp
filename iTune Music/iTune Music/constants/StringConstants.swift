@@ -21,4 +21,11 @@ enum StringConstants {
     static let ALBUM_VIEW_URL_ERROR = "Album URL is not present"
     static let ARTIST_VIEW_URL_ERROR = "Artist URL is not present"
     static let URL_INIT_ERROR = "Path is not correct URL format"
+    static let CURRENCY_SYMBOL = "$"
+    static let TRACK_TEXT = "Track"
+    static let GENRE_TEXT = "Genre"
+    static let ALBUM_TEXT = "Album"
+    static let PRICE_TEXT = "Price"
+    static let COUNTRY_TEXT = "Country"
+    static let RELEASED_TEXT = "Released"
 }
