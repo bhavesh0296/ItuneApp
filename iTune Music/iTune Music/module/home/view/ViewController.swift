@@ -14,16 +14,18 @@ class ViewController: UIViewController {
 
     //MARK:- IBOutlets
     @IBOutlet weak var musicTableView: UITableView!
+    @IBOutlet weak var searchResultLabel: UILabel!
 
     //MARK:- Member Properties
     var presenter: HomePresenter!
     var musicList: [Music] = []
+    var searchController = UISearchController()
 
     //MARK:- ViewController Life Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = HomePresenter(delegate: self)
-        presenter.fetchMusic()
+        updateSearchLabel(with: "Please Search Music")
         initialViewSetup()
         tableViewSetup()
     }
@@ -41,6 +43,15 @@ class ViewController: UIViewController {
     fileprivate func initialViewSetup() {
         self.title = StringConstants.HOME_SCREEN_TITLE
         self.navigationController?.navigationBar.tintColor = AppColor.theme
+        self.navigationItem.searchController = searchController
+        searchController.searchBar.setValue("Search", forKey: "cancelButtonText")
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        DispatchQueue.main.async {
+            UIView.performWithoutAnimation {
+                self.searchController.isActive = true
+            }
+        }
     }
 
     fileprivate func tableViewSetup() {
@@ -56,6 +67,12 @@ class ViewController: UIViewController {
     fileprivate func reloadMusicTable() {
         DispatchQueue.main.async { [unowned self] in
             self.musicTableView.reloadData()
+        }
+    }
+
+    fileprivate func updateSearchLabel(with text: String) {
+        DispatchQueue.main.async {
+            self.searchResultLabel.text = text
         }
     }
 
@@ -149,9 +166,14 @@ extension ViewController : UITableViewDelegate {
 
 //MARK:- HomePresenterProtocol Extension
 extension ViewController: HomePresenterProtocol {
-
-    func fetchMusicSuccess(with musicList: [Music]) {
+    func fetchMusicSuccess(with musicList: [Music], text: String) {
         self.musicList = musicList
+
+        if musicList.isEmpty {
+            updateSearchLabel(with: "No Result Found for: \(text)")
+        } else {
+            updateSearchLabel(with: "Music Search For: \(text)")
+        }
         self.reloadMusicTable()
     }
 
@@ -160,11 +182,11 @@ extension ViewController: HomePresenterProtocol {
     }
 
     func showLoader() {
-
+        LoaderUtility.shared.showLoader()
     }
 
     func hideLoader() {
-
+        LoaderUtility.shared.hideLoader()
     }
 
 }
@@ -194,4 +216,12 @@ extension ViewController: MusicDetailViewControllerProtocol {
         self.reloadRow(at: indexPath)
     }
 
+}
+
+extension ViewController: UISearchControllerDelegate, UISearchBarDelegate {
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
+        guard let text = searchBar.text else { return }
+        presenter.fetchMusic(with: text)
+    }
 }

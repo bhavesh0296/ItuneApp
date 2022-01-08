@@ -9,7 +9,7 @@
 import Foundation
 
 protocol HomePresenterProtocol: class {
-    func fetchMusicSuccess(with musicList: [Music])
+    func fetchMusicSuccess(with musicList: [Music], text: String)
     func fetchMusicFailure(with message: String)
     func showLoader()
     func hideLoader()
@@ -25,14 +25,30 @@ class HomePresenter {
         self.delegate = delegate
     }
 
-    func fetchMusic() {
+//    func fetchMusic() {
+//        delegate?.showLoader()
+//        APIService.shared.getRequest(.searchMichaelJackson) { (result: Result<MusicResponseModel, Error>) in
+//            self.delegate?.hideLoader()
+//            switch result {
+//            case .success(let data):
+//                if let musicList = data.results {
+//                    self.delegate?.fetchMusicSuccess(with: musicList)
+//                }
+//            case .failure(let error):
+//                self.delegate?.fetchMusicFailure(with: error.localizedDescription)
+//            }
+//        }
+//    }
+
+    func fetchMusic(with searchText: String) {
         delegate?.showLoader()
-        APIService.shared.getRequest(.searchMichaelJackson) { (result: Result<MusicResponseModel, Error>) in
+        APIService.shared.getRequest(.search, parameters: ["term": searchText]) {(result: Result<MusicResponseModel, Error>) in
             self.delegate?.hideLoader()
             switch result {
             case .success(let data):
                 if let musicList = data.results {
-                    self.delegate?.fetchMusicSuccess(with: musicList)
+                    self.delegate?.fetchMusicSuccess(with: musicList,
+                                                     text: searchText)
                 }
             case .failure(let error):
                 self.delegate?.fetchMusicFailure(with: error.localizedDescription)

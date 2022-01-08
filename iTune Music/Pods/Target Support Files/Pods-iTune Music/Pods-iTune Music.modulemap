@@ -1,0 +1,6 @@
+framework module Pods_iTune_Music {
+  umbrella header "Pods-iTune Music-umbrella.h"
+
+  export *
+  module * { export * }
+}

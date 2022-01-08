@@ -10,7 +10,7 @@ import Foundation
 
 enum StringConstants {
     static let APP_NAME = "iTune Music"
-    static let HOME_SCREEN_TITLE = "Michael Jackson"
+    static let HOME_SCREEN_TITLE = "iTune Music"
     static let EMPTY_String = " "
     static let PLACEHOLDER_TEXT = "--"
     static let ALERT_OK = "OK"
